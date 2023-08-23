@@ -24,7 +24,8 @@ const AuthProvider = ({ children }) => {
         setData({  authenticated: true,
           user: {
             username,
-            password
+            password,
+            courseName:"Test"
           }})
 
         popSnackbar('success', 'Successfully logged in!')
@@ -50,6 +51,7 @@ const AuthProvider = ({ children }) => {
     isAuth: data?.authenticated,
     currentUser: data?.user,
     isLoading: false,
+
     // isLoading: isValidating && !data,
     login,
     logout,
