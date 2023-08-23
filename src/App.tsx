@@ -6,6 +6,8 @@ import {Navigate, Route, Routes} from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Nav from './components/Nav';
+import { useAuth } from './hooks/useAuthContext';
 
 const theme = createTheme({
     palette: {
@@ -21,8 +23,11 @@ const theme = createTheme({
 
 
 function App() {
+    const {isAuth} = useAuth()
+    console.log(isAuth)
   return (
       <ThemeProvider theme={theme}>
+        {isAuth && <Nav/>}
           <CssBaseline/>
           <Routes>
               <Route path='*' element={<Navigate to="/" replace />} />

@@ -21,7 +21,7 @@ const AuthProvider = ({ children }) => {
         // mutate(data)
         return data
       } catch (error) {
-        setData({  isAuth: true,
+        setData({  authenticated: true,
           user: {
             username,
             password
@@ -40,10 +40,10 @@ const AuthProvider = ({ children }) => {
       // mutate(data)
       return data
     } catch (error) {
-      // popSnackbar('error', 'Could not logout.')
+      popSnackbar('success', 'logged out')
       setData(null)
     }
-  }, [])
+  }, [popSnackbar])
   // }, [mutate, popSnackbar])
 
   const value = {
