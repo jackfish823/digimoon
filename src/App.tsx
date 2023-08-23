@@ -6,6 +6,7 @@ import {Navigate, Route, Routes} from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Nav from './components/Nav';
 
 const theme = createTheme({
     palette: {
@@ -26,7 +27,7 @@ function App() {
           <CssBaseline/>
           <Routes>
               <Route path='*' element={<Navigate to="/" replace />} />
-              <Route path="" Component={Login} />
+              <Route path="" Component={Nav} />
               <Route path="/home" Component={Home} />
               <Route path="/register" Component={Register} />
           </Routes>
