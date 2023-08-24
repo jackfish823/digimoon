@@ -16,7 +16,7 @@ const PresentCheck = () => {
         flexDirection: "column",
       }}>
       <SelectGroup />
-      <Typography>
+      <Typography variant='h1' >
         {currentParticipate}/ {totalParticipates}
       </Typography>
       <GenerateQRCode />

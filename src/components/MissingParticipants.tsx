@@ -12,18 +12,16 @@ function createData(user: any, cause: any) {
 }
 
 const rows = [
-  createData("Frozen yoghurt", "hh"),
-  createData("Ice cream sandwich", "hgcvbddddddddddddddddddddddddddddddd"),
-  createData("Eclair", "aaaaaaaa"),
-  createData("Cupcake", "aaaa"),
-  createData("Gingerbread", "yegduj"),
+  createData("נועם גיא", "שיחה אישית"),
+  createData("מאיה טלמון", "בקשת יציאה"),
+  createData("אלישע", "אישור תוכניות"),
+  createData("חי רוס", "תורנות"),
+  createData("גונאס", "תורנות"),
 ];
 
 export default function MissingParticipants() {
   return (
-    <TableContainer
-      component={Paper}
-      >
+    <TableContainer component={Paper}>
       <Table aria-label='simple table'>
         <TableHead>
           <TableRow>
