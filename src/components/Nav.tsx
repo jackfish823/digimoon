@@ -14,6 +14,9 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuthContext";
+import Hour from "./Hour"
+
+
 
 const settings = ['Profile', 'Logout'];
 
@@ -41,18 +44,22 @@ const Nav = () => {
 
     };
 
-
     const onLogout = () => {
         logout('noam', 'pass');
         navigate('/');
     }
 
+    const Profile = () => {
+        alert("Redirect to Profile page ")
+    }
+    
     return (
         <AppBar position="static" sx={{ backgroundColor: "#F5CA24" }}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
+                    <Hour/>
                     <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-                    <Typography
+                    {/* <Typography
                         variant="h6"
                         noWrap
                         component="a"
@@ -60,7 +67,7 @@ const Nav = () => {
                         sx={{
                             mr: 2,
                             display: { xs: 'none', md: 'flex' },
-                            textAlign: 'left',
+                            textAlign: 'center',
                             fontFamily: 'monospace',
                             fontWeight: 700,
                             letterSpacing: '.3rem',
@@ -69,7 +76,7 @@ const Nav = () => {
                         }}
                     >
                         Digimoon
-                    </Typography>
+                    </Typography> */}
 
                     {/* <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -141,7 +148,7 @@ const Nav = () => {
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                                <Avatar alt="Noam"  />
                             </IconButton>
                         </Tooltip>
                         <Menu
@@ -161,7 +168,7 @@ const Nav = () => {
                             onClose={handleCloseUserMenu}
                         >
                             {settings.map((setting) => (
-                                <MenuItem key={setting} onClick={onLogout}>
+                                <MenuItem key={setting} onClick={setting== "Logout"?onLogout:Profile}>
                                     <Typography textAlign="center">{setting}</Typography>
                                 </MenuItem>
                             ))}

@@ -9,7 +9,6 @@ const GenerateQRCode = () => {
   const [value, setValue] = useState("");
   const currUser = `aaa`;
 
-  
   return (
     <div
       style={{
@@ -24,19 +23,19 @@ const GenerateQRCode = () => {
       </Typography>
       <TextField
         type='text'
-        onChange={(e:  any) =>
+        onChange={(e: any) =>
           setValue(
-            `http://www.abc.com/details?method=post&userId=${currUser}&lessId=${(e.target.value)}`
+            `http://www.abc.com/details?method=post&userId=${currUser}&lessId=${e.target.value}`
           )
         }
         placeholder='שם שיעור'
       />
-
+      <br />
       <QRCode
         value={value}
         bgColor={"#FFFFFF"}
         fgColor={"#000000"}
-        size={256}
+        size={170}
       />
     </div>
   );

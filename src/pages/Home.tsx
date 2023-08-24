@@ -9,10 +9,7 @@ import { useAuth } from "../hooks/useAuthContext";
 const Home = () => {
     const { currentUser } = useAuth();
 
-
-
     return <div style={{ display: 'flex', justifyContent: "center", alignItems: "center" }}>
-    
         <Typography>Hello {currentUser?.username}</Typography>
     </div>
 }

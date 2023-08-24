@@ -6,9 +6,13 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import PresentCheck from "./pages/PresentCheck";
 import Nav from "./components/Nav";
 import { useAuth } from "./hooks/useAuthContext";
+import AddMissingStudents from "./pages/AddMissingStudents";
+import JoinOpenCourse from "./pages/JoinOpenCourse";
+import ScanQR from "./pages/ScanQR";
+import EnteredClass from "./pages/EnteredClass";
+import PresentCheck from "./pages/PresentCheck";
 
 const theme = createTheme({
   palette: {
@@ -23,17 +27,26 @@ const theme = createTheme({
 });
 
 function App() {
-  const { isAuth } = useAuth();
+  const { isAuth, currentUser } = useAuth();
   console.log(isAuth);
   return (
     <ThemeProvider theme={theme}>
+      {isAuth && <Nav />}
       <CssBaseline />
       <Routes>
         <Route path='*' element={<Navigate to='/' replace />} />
         <Route path='' Component={Login} />
-        <Route path='/home' Component={Home} />
         <Route path='/register' Component={Register} />
+        <Route path='/inclass' Component={EnteredClass} />
         <Route path='/presentCheck' Component={PresentCheck} />
+
+        {/*<Route path="/manage/student" Component={AddMissingStudents} />*/}
+        {isAuth && (
+          <Route
+            path='/home'
+            Component={currentUser?.course ? ScanQR : JoinOpenCourse}
+          />
+        )}
       </Routes>
     </ThemeProvider>
   );
