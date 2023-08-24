@@ -8,7 +8,7 @@ const LoginForm = () => {
 
     const onLogin = async () => {
        await login('noam', 'pass');
-       navigate('/home');
+       navigate('/joinopen');
     }
 
     return (<div style={{display: "flex", width: '80%', justifyContent: "center", alignItems: "center", flexDirection: "column"}}>

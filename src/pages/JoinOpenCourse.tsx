@@ -1,6 +1,7 @@
 import {Button, ButtonBase, Fab, TextField, Typography} from "@mui/material";
 import {useAuth} from "../hooks/useAuthContext";
 import {useState} from "react";
+import {useNavigate} from "react-router-dom";
 
 const MainStep = ({user, onJoin, onCreate}: any) => {
     return (<>
@@ -19,6 +20,7 @@ const MainStep = ({user, onJoin, onCreate}: any) => {
 }
 
 const JoinCourse = ({user, onBack}: any) => {
+    const navigate = useNavigate();
     return (<>
         <Typography style={{direction: 'rtl', marginTop: 20, fontSize: 20}}>
             שלום {user.username}!
@@ -27,7 +29,7 @@ const JoinCourse = ({user, onBack}: any) => {
             אנא הזן את הקוד שקיבלת ממפקד הקורס על מנת להצטרף!
         </Typography>
         <TextField placeholder="קוד קורס" />
-        <Button sx={{marginTop: 3}} variant="contained">הצטרף</Button>
+        <Button sx={{marginTop: 3}} variant="contained" onClick={() => navigate('/home')}>הצטרף</Button>
         <Button sx={{marginTop: 1}} onClick={onBack}>חזור</Button>
     </>)
 }

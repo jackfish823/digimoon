@@ -38,8 +38,9 @@ function App() {
               <Route path="" Component={Login} />
               <Route path="/register" Component={Register} />
               <Route path="/inclass" Component={EnteredClass} />
-              {/*<Route path="/manage/student" Component={AddMissingStudents} />*/}
-              {isAuth && <Route path="/home" Component={currentUser?.course ? ScanQR : JoinOpenCourse}/>}
+              <Route path="/manage/student" Component={AddMissingStudents} />
+              <Route path="/joinopen" Component={JoinOpenCourse}/>
+              {isAuth && <Route path="/home" Component={ScanQR}/>}
           </Routes>
       </ThemeProvider>
   );
