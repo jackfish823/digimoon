@@ -6,6 +6,7 @@ import { useAuth } from "../hooks/useAuthContext";
 import IconAvatars from "../components/IconAvatars"
 import Table from "../components/Table"
 import Grid from '@mui/material/Grid';
+import ListAltIcon from '@mui/icons-material/ListAlt';
 
 const Home = () => {
     const { currentUser } = useAuth();
@@ -28,15 +29,17 @@ const Home = () => {
 
 
         <Grid container xs={12}>
-            <div>
+           
 
-                <div style={{ display: 'flex', justifyContent: "center", alignItems: "center", margin: "3.5%", width: "100%", marginTop: "5%" }}>
-                    <IconAvatars /> 
+                <div style={{ display: 'flex', justifyContent: "center", alignItems: "center", margin: "3.5%", width: "100%", marginTop: "5%",flexDirection: "column" }}>
+                            <div style={{ display: 'flex', justifyContent: "center", alignItems: "center", margin: "3.5%", width: "100%", marginTop: "5%" }}>
+<IconAvatars /> 
                     <Typography >Hello {currentUser?.username} !</Typography>
 
                 </div>
-                <div >
-                    <Table />
+                    <Typography sx={{fontSize: 27}}> To review who's here: </Typography>
+                <div style={{display: "flex", justifyContent: "center", cursor:"pointer"}}>
+                <ListAltIcon sx={{ fontSize: 150 }} onClick={()=> navigate('/presentCheck')}/>
                 </div>
             </div>
             <div style={{display: "flex", justifyContent: "left", alignItems: "left", flexDirection: "column"}}>

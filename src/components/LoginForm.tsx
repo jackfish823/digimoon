@@ -7,9 +7,10 @@ const LoginForm = () => {
     const navigate = useNavigate();
     const {login} = useAuth();
     const [name, setName] = useState("")
+   
     const onLogin = async () => {
-       await login('noam', 'pass');
-       navigate('/joinopen');
+       await login(name, 'pass');
+       name=='Noam'? navigate('/admin'): navigate('/home')
     }
 
     return (<div style={{display: "flex", width: '80%', justifyContent: "center", alignItems: "center", flexDirection: "column"}}>
