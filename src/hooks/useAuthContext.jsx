@@ -25,7 +25,15 @@ const AuthProvider = ({ children }) => {
           user: {
             username,
             password,
-            courseName:"Test"
+            course: {
+              name: 'test',
+              id: '1'
+            },
+            team: {
+              name: '1',
+              id: '1'
+            },
+            role: 'admin'
           }})
 
         popSnackbar('success', 'Successfully logged in!')
