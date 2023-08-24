@@ -8,8 +8,8 @@ const LoginForm = () => {
     const {login} = useAuth();
     const [name, setName] = useState("")
     const onLogin = async () => {
-       await login(name, 'pass');
-       name=='Noam'? navigate('/admin'): navigate('/home');
+       await login('noam', 'pass');
+       navigate('/joinopen');
     }
 
     return (<div style={{display: "flex", width: '80%', justifyContent: "center", alignItems: "center", flexDirection: "column"}}>
