@@ -11,10 +11,10 @@ const ScanQR = () => {
         <div style={{height: 300, width: 300}}>
             <QrScanner
                 videoStyle={{border: 'solid 3px black'}}
-                onDecode={(result) => {
+                onDecode={(result:any) => {
                     navigate('/inclass')
                 }}
-                onError={(error) => console.log(error?.message)}
+                onError={(error:any) => console.log(error?.message)}
             />
         </div>
 
