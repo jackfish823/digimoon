@@ -41,7 +41,7 @@ function App() {
               <Route path="/admin" Component={Home} />
 
               {/*<Route path="/manage/student" Component={AddMissingStudents} />*/}
-              {isAuth && <Route path="/home" Component={currentUser?.course ? ScanQR : JoinOpenCourse}/>}
+              {isAuth && <Route path="/home" Component={currentUser?.course  ? ScanQR : JoinOpenCourse}/>}
           </Routes>
       </ThemeProvider>
   );
