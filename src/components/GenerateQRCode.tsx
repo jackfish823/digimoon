@@ -2,12 +2,14 @@ import { Button, TextField, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import QRCode from "react-qr-code";
+import { generateKey } from "crypto";
 
 const GenerateQRCode = () => {
   const navigate = useNavigate();
   const [value, setValue] = useState("");
   const currUser = `aaa`;
 
+  
   return (
     <div
       style={{
@@ -22,22 +24,20 @@ const GenerateQRCode = () => {
       </Typography>
       <TextField
         type='text'
-        onChange={(e) =>
+        onChange={(e:  any) =>
           setValue(
-            `http://www.abc.com/details?method=post&userId=${currUser}&lessId=${e.target.value}`
+            `http://www.abc.com/details?method=post&userId=${currUser}&lessId=${(e.target.value)}`
           )
         }
-        placeholder='Value of Qr-code'
+        placeholder='שם שיעור'
       />
-      <br />
-      {value && (
-        <QRCode
-          value={value}
-          bgColor={"#FFFFFF"}
-          fgColor={"#000000"}
-          size={256}
-        />
-      )}
+
+      <QRCode
+        value={value}
+        bgColor={"#FFFFFF"}
+        fgColor={"#000000"}
+        size={256}
+      />
     </div>
   );
 };
