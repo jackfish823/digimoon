@@ -30,28 +30,21 @@ function App() {
   const { isAuth, currentUser } = useAuth();
   console.log(isAuth);
   return (
+      <ThemeProvider theme={theme}>
+        {isAuth && <Nav/>}
+          <CssBaseline/>
+          <Routes>
+              <Route path='*' element={<Navigate to="/" replace />} />
+              <Route path="" Component={Login} />
+              <Route path="/register" Component={Register} />
+              <Route path="/inclass" Component={EnteredClass} />
+              <Route path="/admin" Component={Home} />
+              <Route path='/presentCheck' Component={PresentCheck} />
 
-    <ThemeProvider theme={theme}>
-      {isAuth && <Nav />}
-      <CssBaseline />
-      <Routes>
-        <Route path='*' element={<Navigate to='/' replace />} />
-        <Route path='' Component={Login} />
-        <Route path='/register' Component={Register} />
-        <Route path='/inclass' Component={EnteredClass} />
-         <Route path="/manage/student" Component={AddMissingStudents} />
-              <Route path="/joinopen" Component={JoinOpenCourse}/>
-        <Route path='/presentCheck' Component={PresentCheck} />
-
-        {/*<Route path="/manage/student" Component={AddMissingStudents} />*/}
-        {isAuth && (
-          <Route
-            path='/home'
-            Component={currentUser?.course ? ScanQR : JoinOpenCourse}
-          />
-        )}
-      </Routes>
-    </ThemeProvider>
+              {/*<Route path="/manage/student" Component={AddMissingStudents} />*/}
+              {isAuth && <Route path="/home" Component={currentUser?.course  ? ScanQR : JoinOpenCourse}/>}
+          </Routes>
+      </ThemeProvider>
   );
 }
 
