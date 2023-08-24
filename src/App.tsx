@@ -38,6 +38,8 @@ function App() {
               <Route path="" Component={Login} />
               <Route path="/register" Component={Register} />
               <Route path="/inclass" Component={EnteredClass} />
+              <Route path="/admin" Component={Home} />
+
               {/*<Route path="/manage/student" Component={AddMissingStudents} />*/}
               {isAuth && <Route path="/home" Component={currentUser?.course ? ScanQR : JoinOpenCourse}/>}
           </Routes>
